@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../LanguageContext';
+import hero from '../assets/hero.png';
 
 /**
  * Header component: renders the top navigation and hero section of the portfolio.
@@ -8,8 +9,21 @@ import { LanguageContext } from '../LanguageContext';
 function Header() {
   const { language, toggleLanguage } = useContext(LanguageContext);
 
+  const headerBg = {
+    backgroundImage: `linear-gradient(rgba(0,12,34,0.6), rgba(0,12,34,0.6)), url(${hero})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    color: '#fff',
+    height: '70vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  };
+
   return (
-    <header id="home">
+    <header id="home" style={headerBg}>
       <nav>
         <div className="logo">Eduardo F. Ortiz</div>
         <ul>

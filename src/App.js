@@ -13,7 +13,7 @@ import hero from './assets/hero.png';
 
 function App() {
   const headerBg = {
-    backgroundImage: `linear-gradient(rgba(0,12,34,0.6), rgba(0,12,34,0.6)), url(${hero})`,
+    backgroundImage: `linear-gradient(rgba(0,12,34,0.6), rgba(0, 12, 34, 0.59)), url(${hero})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     color: '#fff',
