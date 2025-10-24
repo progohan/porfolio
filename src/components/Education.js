@@ -1,65 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../LanguageContext';
+import { educationData } from '../data';
 
 /**
  * Education component: displays formal degrees and postgraduate programs
  * based on the CV. Items are grouped into degrees and postgraduate courses.
  */
 function Education() {
-  const degrees = [
-    {
-      title: 'Grado en Derecho (en curso)',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2024 (previsto)'
-    },
-    {
-      title: 'Máster en Derecho Internacional de los Negocios',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2022'
-    },
-    {
-      title: 'Máster en Ingeniería Matemática y Computacional',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2021'
-    },
-    {
-      title: 'Máster en Business Intelligence',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2020'
-    },
-    {
-      title: 'Executive MBA en el sector de la Construcción',
-      institution: 'EOI Business School, España',
-      year: '2006'
-    },
-    {
-      title: 'Máster en Ingeniería Civil',
-      institution: 'Universidad de Cantabria, España',
-      year: '2002'
-    }
-  ];
-
-  const postgrads = [
-    {
-      title: 'Programa de posgrado en Cloud Computing (AWS & Azure)',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2022'
-    },
-    {
-      title: 'Programa de posgrado en Big Data e Inteligencia Artificial',
-      institution: 'Universidad Internacional de La Rioja, España',
-      year: '2021'
-    },
-    {
-      title: 'Especialización en Estructuras Metálicas y Mixtas',
-      institution: 'Zigurat Global Institute of Technology',
-      year: '2012'
-    }
-  ];
+  const { language } = useContext(LanguageContext);
+  const { degrees, postgrads } = educationData[language];
 
   return (
     <section id="education">
-      <h2>Educación</h2>
-      <h3>Grados y Másteres</h3>
+      <h2>{language === 'es' ? 'Educación' : 'Education'}</h2>
+      <h3>{language === 'es' ? 'Grados y Másteres' : 'Degrees and Masters'}</h3>
       <ul className="education-list">
         {degrees.map((item) => (
           <li key={item.title}>
@@ -67,7 +21,7 @@ function Education() {
           </li>
         ))}
       </ul>
-      <h3>Programas de Posgrado</h3>
+      <h3>{language === 'es' ? 'Programas de Posgrado' : 'Postgraduate Programs'}</h3>
       <ul className="education-list">
         {postgrads.map((item) => (
           <li key={item.title}>

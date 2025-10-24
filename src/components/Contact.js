@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../LanguageContext';
 import { icon, config } from '@fortawesome/fontawesome-svg-core';
 import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +11,7 @@ config.autoAddCss = false;
  * Contact component: displays contact information with corresponding icons.
  */
 function Contact() {
+  const { language } = useContext(LanguageContext);
   const phoneIcon = icon(faPhone, { styles: { color: '#2b2e4a' } }).html.join('');
   const emailIcon = icon(faEnvelope, { styles: { color: '#2b2e4a' } }).html.join('');
   const locationIcon = icon(faMapMarkerAlt, { styles: { color: '#2b2e4a' } }).html.join('');
@@ -17,11 +19,11 @@ function Contact() {
 
   return (
     <section id="contact">
-      <h2>Contacto</h2>
+      <h2>{language === 'es' ? 'Contacto' : 'Contact'}</h2>
       <div className="contact-info">
         <div className="contact-item">
           <span dangerouslySetInnerHTML={{ __html: locationIcon }} />
-          <span>Washington, DC, EE. UU.</span>
+          <span>Washington, DC, USA</span>
         </div>
         <div className="contact-item">
           <span dangerouslySetInnerHTML={{ __html: phoneIcon }} />
